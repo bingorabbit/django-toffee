@@ -1,0 +1,28 @@
+{% load static %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    {# Load CSS and JavaScript #}
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {# Setting Page Styles #}
+    {% for style in styles %}
+    <link rel="stylesheet" type="text/css" href="{% static style %}">
+    {% endfor %}
+
+    {# Setting Page Scripts #}
+    {% for script in scripts %}
+    <script type="javascript" src="{% static script %}"></script>
+    {% endfor %}
+
+    {# Setting Page Meta Data #}
+    {% for meta_key, meta_value in metas.items %}
+    <meta type="{{meta_key}}" content="{{ meta_value }}">
+    {% endfor %}
+
+</head>
+<body>
